@@ -5,6 +5,7 @@ export type CheckboxProps = {
   checked: boolean
   onCheckedChange: (checked: boolean) => void
   label?: string
+  
 }
 
 export const Checkbox: FC<CheckboxProps> = ({ checked, onCheckedChange, label }) => {

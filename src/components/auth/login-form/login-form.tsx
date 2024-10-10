@@ -13,6 +13,7 @@ export const LoginForm = () => {
   const loginSchema = z.object({
     email: z.string().email(),
     password: z.string().min(3),
+    rememberMe: z.string().optional(),
   })
   
   type FormValues = z.infer<typeof loginSchema>
@@ -38,7 +39,7 @@ export const LoginForm = () => {
       <DevTool control={control} />
         <TextField {...register('email')} label={'Email'} errorMessage={errors.email?.message} />
         <TextField {...register('password')} label={'Password'} errorMessage={errors.password?.message} />
-        <ControlledCheckbox label={'Remember me'} control={control} name={'rememberMe'} />
+        <ControlledCheckbox onCheckedChange={()=>{}} label={'Remember me'} control={control} name={'rememberMe'} />
       <Button type="submit">Submit</Button>
     </form>
   )
