@@ -1,7 +1,13 @@
+// export * from '../src/components/ui/button/button'
+
+
+
 import Head from "next/head";
 import Image from "next/image";
 import localFont from "next/font/local";
-import styles from "@/styles/Home.module.css";
+import styles from "../styles/Home.module.css";
+import { LoginForm } from "@/components/auth/login-form/login-form";
+import Button from "@/components/ui/button/button";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,20 +33,7 @@ export default function Home() {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="https://nextjs.org/icons/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <ol>
-            <li>
-              Get started by editing <code>pages/index.tsx</code>.
-            </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
+
 
           <div className={styles.ctas}>
             <a
@@ -58,14 +51,10 @@ export default function Home() {
               />
               Deploy now
             </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
-            </a>
+           <LoginForm />
+           <Button variant="primary">  Primary Button</Button>
+            <a className={styles.primary}  onClick={()=>{console.log('Test btn');}}>Test btn</a>
+
           </div>
         </main>
         <footer className={styles.footer}>
