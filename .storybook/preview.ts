@@ -2,20 +2,24 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/700.css';
 import '../src/styles/index.scss';
 
+import { fn } from '@storybook/test';
 import { themes } from '@storybook/theming';
 import type { Preview } from '@storybook/react';
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
-    docs: {
-      theme: themes.dark,  // Темная тема для раздела "Docs"
+    // actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: {
+      handles: ['onClick', 'onChange', 'onSubmit', 'onHover', 'onFocus'].map(event => ({ name: event, action: fn() }))
     },
-    // Добавляем темную тему глобально для интерфейса
+    docs: {
+      theme: themes.dark,  
+    },
+
     darkMode: {
       dark: themes.dark,
-      light: themes.light,  // Можно добавить светлую тему для переключения
-      current: 'dark',  // Указываем текущую тему
+      light: themes.light,  
+      current: 'dark',  
     },
     backgrounds: {
       default: 'dark',
